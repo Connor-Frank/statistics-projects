@@ -1,0 +1,10 @@
+monty hall simulation
+enter number of trials (recommended = 1000000): 1000000
+
+door unchanged:
+total wins out of 1e+06: 333175
+percent win: 33.3175%
+
+door changed:
+total wins out of 1e+06: 667277
+percent win: 66.7277%
