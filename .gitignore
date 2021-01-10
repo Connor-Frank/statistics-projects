@@ -8,5 +8,8 @@ venv/
 # visual studio code
 .vscode
 
-## Java ##
+## compiled C++ ##
+cmake-build-files
+
+## compiled Java ##
 *.class
