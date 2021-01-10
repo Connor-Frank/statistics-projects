@@ -1,0 +1,92 @@
+monty hall simulation
+max trials scanner can handle is 1000000000
+manual or auto? enter 0 for auto, enter number of trials for manual: 0
+enter max number of trials (0 for recommended max of 1000000000): 0
+10 trials:
+door unchanged:
+total wins out of 10: 5
+percent win: 50.0%
+
+door changed:
+total wins out of 10: 5
+percent win: 50.0%
+
+
+100 trials:
+door unchanged:
+total wins out of 100: 32
+percent win: 32.0%
+
+door changed:
+total wins out of 100: 64
+percent win: 64.0%
+
+
+1000 trials:
+door unchanged:
+total wins out of 1000: 331
+percent win: 33.1%
+
+door changed:
+total wins out of 1000: 668
+percent win: 66.8%
+
+
+10000 trials:
+door unchanged:
+total wins out of 10000: 3302
+percent win: 33.019999999999996%
+
+door changed:
+total wins out of 10000: 6739
+percent win: 67.39%
+
+
+100000 trials:
+door unchanged:
+total wins out of 100000: 33409
+percent win: 33.409%
+
+door changed:
+total wins out of 100000: 66636
+percent win: 66.636%
+
+
+1000000 trials:
+door unchanged:
+total wins out of 1000000: 333941
+percent win: 33.3941%
+
+door changed:
+total wins out of 1000000: 666191
+percent win: 66.6191%
+
+
+10000000 trials:
+door unchanged:
+total wins out of 10000000: 3332905
+percent win: 33.32905%
+
+door changed:
+total wins out of 10000000: 6668881
+percent win: 66.68881%
+
+
+100000000 trials:
+door unchanged:
+total wins out of 100000000: 33339706
+percent win: 33.339706%
+
+door changed:
+total wins out of 100000000: 66661760
+percent win: 66.66176%
+
+
+1000000000 trials:
+door unchanged:
+total wins out of 1000000000: 333323976
+percent win: 33.3323976%
+
+door changed:
+total wins out of 1000000000: 666670546
+percent win: 66.6670546%
