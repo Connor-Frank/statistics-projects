@@ -1,0 +1,4 @@
+craps simulation - connor frank
+
+49292150 wins out of 100000000 games
+% of games won: 49.2921
