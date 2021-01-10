@@ -1,0 +1,11 @@
+# apple desktop services storage
+.DS_Store
+# python virtual environment
+venv/
+# JetBrains .idea stuff
+.idea
+# visual studio code
+.vscode
+
+## Java ##
+*.class
