@@ -4,6 +4,7 @@
 venv/
 # JetBrains .idea stuff
 .idea
+*.iml
 # visual studio code
 .vscode
 
