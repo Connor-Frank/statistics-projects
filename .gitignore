@@ -1,3 +1,6 @@
+# don't upload output files
+output.txt
+
 # apple desktop services storage
 .DS_Store
 # python virtual environment
