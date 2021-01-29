@@ -1,4 +1,4 @@
-# don't upload output files
+# don't add output files to git
 output.txt
 
 # apple desktop services storage
