@@ -3,7 +3,6 @@
 //
 
 #include "Craps.h"
-#include <cmath>
 #include <filesystem>
 #include <fstream>
 #include <iostream>

@@ -1,5 +1,5 @@
 # don't add output files to git
-**/[Oo]utput*
+output.txt
 
 # apple desktop services storage
 .DS_Store
