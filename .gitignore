@@ -13,6 +13,8 @@ venv/
 *.iml
 # visual studio code
 .vscode
+# emacs ccls cache
+.ccls-cache
 
 ## compiled C++ ##
 cmake-build-files

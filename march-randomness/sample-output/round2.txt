@@ -1,0 +1,5 @@
+random seed: 7829644219788513195
+100000000 trials were simulated.
+1 coin landed on heads 24998448 times.
+that's equal to 24.998448% of the time
+time to run: 2.271996 seconds
