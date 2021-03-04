@@ -19,7 +19,7 @@ int main(void) {
   seed_rand();
 
   long times_both_red = 0;
-  long trials = 1e+7;
+  long trials = 1e+7; // takes about 1.4 seconds
 
   clock_t start = clock();
 
@@ -63,20 +63,20 @@ int int_rand(int min, int max) {
 int *int_rand_norep(int min, int max, int size) {
   if (size <= 0)
     return NULL;
-  int *arr = malloc(size * 10);
-  arr[0] = 0;
-  int *draws = malloc(size);
+  int *seen_arr = calloc(max + 1, sizeof(int));
+  int *draws = malloc(size * sizeof(int));
 
-  int ball;
-  for (int i = 0; i < 4; ++i) {
-    ball = int_rand(min, max);
-    if (!arr[ball]) {
-      draws[i] = ball;
+  int drawn_ball;
+  for (int i = 0; i < size; ++i) {
+    drawn_ball = int_rand(min, max);
+    if (!seen_arr[drawn_ball]) {
+      draws[i] = drawn_ball;
     } else {
       i--;
     }
-    arr[ball] = 1;
+    seen_arr[drawn_ball] = 1;
   }
 
+  free(seen_arr);
   return draws;
 }
