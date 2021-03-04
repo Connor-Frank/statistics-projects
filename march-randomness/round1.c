@@ -1,4 +1,6 @@
 /*
+ * ROUND 1
+ *
  * THE EXPERIMENT
  * Roll a 20-sided die and a 30-sided die.
  * Will the sum of the results be at least 20?
