@@ -1,0 +1,5 @@
+random seed: 15410646317242902824
+100000000 trials were simulated.
+a 2 was rolled at least once 59804797 times.
+that's equal to 59.804797% of the time
+time to run: 2.614551 seconds
