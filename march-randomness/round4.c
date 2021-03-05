@@ -21,17 +21,15 @@ int main(void) {
 
   clock_t start = clock();
 
+  int roll;
+
   for (long i = 0; i < trials; i++) {
-    int *rolls = malloc(num_rolls * sizeof(int));
-    if (rolls) {
-      for (int j = 0; j < num_rolls - 1; j++) {
-        rolls[j] = int_rand(1, 6);
-        if (rolls[j] == 2) {
-          times_has_two++;
-          break;
-        }
+    for (int j = 0; j < num_rolls - 1; j++) {
+      roll = int_rand(1, 6);
+      if (roll == 2) {
+        times_has_two++;
+        break;
       }
-      free(rolls);
     }
   }
 
