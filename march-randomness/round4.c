@@ -24,7 +24,7 @@ int main(void) {
   int roll;
 
   for (long i = 0; i < trials; i++) {
-    for (int j = 0; j < num_rolls - 1; j++) {
+    for (int j = 0; j < num_rolls; j++) {
       roll = int_rand(1, 6);
       if (roll == 2) {
         times_has_two++;
