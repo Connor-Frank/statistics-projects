@@ -4,6 +4,8 @@ bin
 # don't add output files to git
 output.txt
 
+__pycache__
+
 # apple desktop services storage
 .DS_Store
 # python virtual environment
