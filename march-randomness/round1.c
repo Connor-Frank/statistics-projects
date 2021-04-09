@@ -30,7 +30,7 @@ int main(void) {
   for (long i = 0; i < trials; i++) {
     die1 = (int)float_rand(1, 20); // one die has 20 sides
     die2 = (int)float_rand(1, 30); // the other has 30
-    sum = die1 + die2;        // find sum
+    sum = die1 + die2;             // find sum
     if (sum >= 20) {
       times++;
     }
