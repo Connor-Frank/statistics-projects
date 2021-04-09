@@ -1,0 +1,19 @@
+#!/bin/sh
+
+unameOut="$(uname -s)"
+if [ "$unameOut" = "Darwin" ]; then
+  echo "using $(which leaks) on Darwin (Mac)"
+  for file in bin/*; do
+    echo $file; sleep 5
+    leaks --atExit -- $file
+    sleep 5
+  done
+elif [ "$(uname -s)" = Linux ]; then
+  echo "using $(which valgrind) on Linux"
+  for file in bin/*; do
+    echo $file; sleep 5
+    valgrind $file
+    sleep 5
+  done
+fi
+
