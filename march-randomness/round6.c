@@ -28,7 +28,7 @@ int main(void) {
    */
 
   long times_same = 0;
-  long trials = 1e+8; // takes about 2 seconds to run
+  long trials = (long)1e+8; // takes about 2 seconds to run
 
   clock_t start = clock();
 
@@ -39,7 +39,7 @@ int main(void) {
     green = int_rand(4, 6);
     if (red == 1 && (green == 4 || green == 5)) {
       times_same++;
-    } else if (green == 6 && (red = 2 || red == 3)) {
+    } else if (green == 6 && (red == 2 || red == 3)) {
       times_same++;
     }
   }
@@ -63,7 +63,7 @@ void seed_rand(void) {
   fread(&rand_seed, sizeof(rand_seed), sizeof(char), fp);
   fclose(fp);
   printf("random seed: %llu\n", rand_seed);
-  srand(rand_seed);
+  srand((unsigned int)rand_seed);
 }
 
 int int_rand(int min, int max) {

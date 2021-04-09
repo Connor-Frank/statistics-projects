@@ -19,17 +19,17 @@ int main(void) {
   fread(&rand_seed, sizeof(rand_seed), sizeof(char), fp);
   fclose(fp);
   printf("random seed: %llu\n", rand_seed);
-  srand(rand_seed);
+  srand((unsigned int)rand_seed);
 
   long times = 0;
-  long trials = 1e+8; // 1e+8 takes about 1.1 seconds, 1e+9 takes about 11
+  long trials = (long)1e+8; // 1e+8 takes about 1.1 seconds, 1e+9 takes about 11
   int die1, die2, sum;
 
   clock_t start = clock();
 
   for (long i = 0; i < trials; i++) {
-    die1 = float_rand(1, 20); // one die has 20 sides
-    die2 = float_rand(1, 30); // the other has 30
+    die1 = (int)float_rand(1, 20); // one die has 20 sides
+    die2 = (int)float_rand(1, 30); // the other has 30
     sum = die1 + die2;        // find sum
     if (sum >= 20) {
       times++;

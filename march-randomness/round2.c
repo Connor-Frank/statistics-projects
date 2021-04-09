@@ -16,7 +16,7 @@ int main(void) {
   seed_rand();
 
   long times_exactly_one = 0;
-  long trials = 1e+8; // takes about 2.3 seconds
+  long trials = (long)1e+8; // takes about 2.3 seconds
   int coin1, coin2, coin3, coin4, coin_sum;
 
   clock_t start = clock();
@@ -51,7 +51,7 @@ void seed_rand(void) {
   fread(&rand_seed, sizeof(rand_seed), sizeof(char), fp);
   fclose(fp);
   printf("random seed: %llu\n", rand_seed);
-  srand(rand_seed);
+  srand((unsigned int)rand_seed);
 }
 
 int int_rand(int min, int max) {

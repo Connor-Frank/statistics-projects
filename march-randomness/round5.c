@@ -12,13 +12,13 @@
 
 void seed_rand(void);
 int int_rand(int min, int max);
-int value_in_array(int val, int *arr, int array_size);
+int value_in_array(int val, const int *arr, int array_size);
 
 int main(void) {
   seed_rand();
 
   long times_all_red = 0;
-  long trials = 1e+8;
+  long trials = (long)1e+8;
   int num_draws = 3;
 
   clock_t start = clock();
@@ -51,7 +51,7 @@ void seed_rand(void) {
   fread(&rand_seed, sizeof(rand_seed), sizeof(char), fp);
   fclose(fp);
   printf("random seed: %llu\n", rand_seed);
-  srand(rand_seed);
+  srand((unsigned int)rand_seed);
 }
 
 int int_rand(int min, int max) {
@@ -60,7 +60,7 @@ int int_rand(int min, int max) {
   return (rand() % (max - min + 1)) + min;
 }
 
-int value_in_array(int val, int *arr, int array_size) {
+int value_in_array(int val, const int *arr, int array_size) {
   for (int i = 0; i < array_size; i++)
     if (arr[i] == val)
       return 1;

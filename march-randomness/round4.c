@@ -16,7 +16,7 @@ int main(void) {
   seed_rand();
 
   long times_has_two = 0;
-  long trials = 1e+8; // takes about 2.6 seconds
+  long trials = (long)1e+8; // takes about 2.6 seconds
   int num_rolls = 6;
 
   clock_t start = clock();
@@ -52,7 +52,7 @@ void seed_rand(void) {
   fread(&rand_seed, sizeof(rand_seed), sizeof(char), fp);
   fclose(fp);
   printf("random seed: %llu\n", rand_seed);
-  srand(rand_seed);
+  srand((unsigned int)rand_seed);
 }
 
 int int_rand(int min, int max) {

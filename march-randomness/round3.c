@@ -19,7 +19,7 @@ int main(void) {
   seed_rand();
 
   long times_both_red = 0;
-  long trials = 1e+7; // takes about 1.4 seconds
+  long trials = (long)1e+7; // takes about 1.4 seconds
 
   clock_t start = clock();
 
@@ -51,7 +51,7 @@ void seed_rand(void) {
   fread(&rand_seed, sizeof(rand_seed), sizeof(char), fp);
   fclose(fp);
   printf("random seed: %llu\n", rand_seed);
-  srand(rand_seed);
+  srand((unsigned int)rand_seed);
 }
 
 int int_rand(int min, int max) {
@@ -63,7 +63,7 @@ int int_rand(int min, int max) {
 int *int_rand_norep(int min, int max, int size) {
   if (size <= 0)
     return NULL;
-  int *seen_arr = calloc(max + 1, sizeof(int));
+  int *seen_arr = calloc((size_t)(max + 1), sizeof(int));
   int *draws = malloc(size * sizeof(int));
 
   int drawn_ball;

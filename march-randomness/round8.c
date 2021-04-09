@@ -18,13 +18,13 @@
 void seed_rand(void);
 int int_rand(int min, int max);
 int *int_rand_norep(int min, int max, int size);
-int value_in_array(int val, int *arr, int array_size);
+int value_in_array(int val, const int *arr, int array_size);
 
 int main(void) {
   seed_rand();
 
   long times_both_red = 0;
-  long trials = 1e+7; // takes about 4 seconds to run
+  long trials = (long)1e+7; // takes about 4 seconds to run
 
   int reds[6] = {0, 1, 2, 3, 4, 5};
   int blues[6] = {6, 7, 8, 9, 10, 11};
@@ -92,7 +92,7 @@ void seed_rand(void) {
   fread(&rand_seed, sizeof(rand_seed), sizeof(char), fp);
   fclose(fp);
   printf("random seed: %llu\n", rand_seed);
-  srand(rand_seed);
+  srand((unsigned int)rand_seed);
 }
 
 int int_rand(int min, int max) {
@@ -105,7 +105,7 @@ int *int_rand_norep(int min, int max, int size) {
   if (size <= 0)
     return NULL;
   int *seen_arr = NULL;
-  seen_arr = calloc(max + 1, sizeof(*seen_arr));
+  seen_arr = calloc((size_t)(max + 1), sizeof(*seen_arr));
   int *draws = malloc(size * sizeof(int));
 
   int drawn_ball;
@@ -123,7 +123,7 @@ int *int_rand_norep(int min, int max, int size) {
   return draws;
 }
 
-int value_in_array(int val, int *arr, int array_size) {
+int value_in_array(int val, const int *arr, int array_size) {
   for (int i = 0; i < array_size; i++)
     if (arr[i] == val)
       return 1;
