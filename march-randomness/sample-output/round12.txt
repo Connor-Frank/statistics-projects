@@ -1,0 +1,5 @@
+random seed: 12380654987609498790
+50000000 trials were simulated.
+both balls were red 27265968 times.
+that's equal to 54.531936% of the time
+time to run: 3.785656 seconds
