@@ -18,6 +18,7 @@ all:
 	$(CC) -o $(BIN)/round7 round7.c $(CFLAGS)
 	$(CC) -o $(BIN)/round8 round8.c $(CFLAGS)
 	$(CC) -o $(BIN)/round9 round9.c $(CFLAGS)
+	$(CC) -o $(BIN)/round10 round10.c $(CFLAGS)
 
 clean:
 	rm -rf $(BIN)

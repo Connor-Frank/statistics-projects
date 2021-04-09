@@ -17,7 +17,7 @@
 
 void seed_rand(void);
 int int_rand(int min, int max);
-int *int_rand_norep(int min, int max, int size);
+int *int_rand_no_rep(int min, int max, int size);
 int value_in_array(int val, const int *arr, int array_size);
 
 int main(void) {
@@ -32,7 +32,7 @@ int main(void) {
   clock_t start = clock();
 
   for (long i = 0; i < trials; i++) {
-    int *pouch_1 = int_rand_norep(3, 6, 2);
+    int *pouch_1 = int_rand_no_rep(3, 6, 2);
     int red_2 = 0;
     int blue_2 = 0;
     if (pouch_1) {
@@ -45,7 +45,7 @@ int main(void) {
       }
       free(pouch_1);
     }
-    int *pouch_2 = int_rand_norep(6 - red_2, 9 + blue_2, 2);
+    int *pouch_2 = int_rand_no_rep(6 - red_2, 9 + blue_2, 2);
     int red_3 = 0;
     int blue_3 = 0;
     if (pouch_2) {
@@ -58,7 +58,7 @@ int main(void) {
       }
       free(pouch_2);
     }
-    int *pouch_3 = int_rand_norep(2 - red_3, 5 + blue_3, 2);
+    int *pouch_3 = int_rand_no_rep(2 - red_3, 5 + blue_3, 2);
     int pouch_3_reds = 0;
     if (pouch_3) {
       for (int j = 0; j < 6; j++) {
@@ -101,7 +101,7 @@ int int_rand(int min, int max) {
   return (rand() % (max - min + 1)) + min;
 }
 
-int *int_rand_norep(int min, int max, int size) {
+int *int_rand_no_rep(int min, int max, int size) {
   if (size <= 0)
     return NULL;
   int *seen_arr = NULL;

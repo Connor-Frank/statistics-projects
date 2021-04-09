@@ -20,7 +20,7 @@ int main(void) {
 
   clock_t start = clock();
 
-  int die = 0, last_die = 0;
+  int die, last_die = 0;
 
   for (long i = 0; i < trials; i++) {
     for (int j = 0; j < 5; j++) {
@@ -31,7 +31,6 @@ int main(void) {
         break;
       } else {
         last_die = die;
-        die = 0;
       }
     }
   }
