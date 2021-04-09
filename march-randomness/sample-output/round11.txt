@@ -1,0 +1,5 @@
+random seed: 14958315128913622464
+100000000 trials were simulated.
+the results were in strictly increasing order 900608 times.
+that's equal to 0.900608% of the time
+time to run: 1.889176 seconds
