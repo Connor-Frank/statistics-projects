@@ -16,6 +16,6 @@ fi
 echo "using $toolName on $unameOut"
 for file in bin/*; do
   echo "$file"
-  toolCmd $file
+  toolCmd "$file"
   sleep 10
 done
