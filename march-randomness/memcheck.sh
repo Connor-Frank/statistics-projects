@@ -2,24 +2,24 @@
 
 exec > >(tee -a log/leaks)
 
-binpathname="bin"
+binPathName="bin"
 
 unameOut="$(uname -s)"
 if [ "$unameOut" = "Darwin" ]; then
   toolName="$(which leaks)"
-  toolCmd(){
+  toolCmd() {
     leaks --atExit -- "$1"
   }
 elif [ "$(uname -s)" = Linux ]; then
   toolName="$(which valgrind)"
-  toolCmd(){
+  toolCmd() {
     valgrind "$1"
   }
 fi
 
 progressBar() {
   local w=40 p=$1; shift
-  printf -v dots "%*s" "$(( $p*$w/100 ))" "" 1>&2
+  printf -v dots "%*s" "$(( p*w/100 ))" "" 1>&2
   dots=${dots// /.}
   printf "\r\e[K|%-*s| %3d %% %s" "$w" "$dots" "$p" "$*" 1>&2
 }
@@ -27,13 +27,13 @@ progressBar() {
 mkdir -p log
 echo "memcheck log" > log/leaks
 
-echo "bin path: $(pwd)/$binpathname"; echo
+echo "bin path: $(pwd)/$binPathName"; echo
 echo "using $toolName on $unameOut"; echo
-for file in "$binpathname"/*; do
+for file in "$binPathName"/*; do
   echo "$file"
   toolCmd "$file"
   for x in {1..100}; do
     progressBar "$x" waiting before continuing...
-    sleep 0.05
+    sleep 0.025
   done; echo; echo 1>&2
 done

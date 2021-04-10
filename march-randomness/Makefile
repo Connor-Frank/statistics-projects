@@ -1,11 +1,14 @@
 CC = gcc
+BIN = bin
 
-OPTIONS = -std=c11 -Ofast
+GENERAL = -std=c11 -O2
+MATHOPTS = -fmerge-all-constants -fno-math-errno
+OTHEROPTS = -funroll-loops -flto
+# documentation for compiler optimizations:
+# https://gcc.gnu.org/onlinedocs/gcc-6.1.0/gcc/Optimize-Options.html
 WARNINGS = -Wall -Wextra
 
-CFLAGS = $(OPTIONS) $(WARNINGS)
-
-BIN = bin
+CFLAGS = $(GENERAL) $(MATHOPTS) $(OTHEROPTS) $(WARNINGS)
 
 all:
 	mkdir -p $(BIN)
