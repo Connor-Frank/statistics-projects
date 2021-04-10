@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+binpathname="bin"
 
 unameOut="$(uname -s)"
 if [ "$unameOut" = "Darwin" ]; then
@@ -13,9 +15,21 @@ elif [ "$(uname -s)" = Linux ]; then
   }
 fi
 
-echo "using $toolName on $unameOut"
-for file in bin/*; do
+progressBar() {
+  local w=40 p=$1; shift
+  printf -v dots "%*s" "$(( $p*$w/100 ))" ""; dots=${dots// /.};
+  printf "\r\e[K|%-*s| %3d %% %s" "$w" "$dots" "$p" "$*"; 
+}
+
+mkdir -p log
+
+echo "bin path: $(pwd)/$binpathname"; echo
+echo "using $toolName on $unameOut"; echo
+for file in "$binpathname"/*; do
   echo "$file"
   toolCmd "$file"
-  sleep 10
-done
+  for x in {1..100}; do
+    progressBar "$x" waiting before continuing...
+    sleep 0.01
+  done; echo '\n'
+done | tee log/leaks
