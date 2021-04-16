@@ -10,7 +10,7 @@ if [ "$unameOut" = "Darwin" ]; then
   toolCmd() {
     leaks --atExit -- "$1"
   }
-elif [ "$(uname -s)" = Linux ]; then
+elif [ "$(uname -s)" = "Linux" ]; then
   toolName="$(which valgrind)"
   toolCmd() {
     valgrind "$1"
