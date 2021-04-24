@@ -16,7 +16,7 @@ BINARIES := $(patsubst %.c, $(BIN)/%, $(SOURCES))
 all: dirs $(BINARIES)
 
 $(BIN)/%: %.c
-	$(CC) -I -c $< -o $@ $(CFLAGS)
+	$(CC) $< -o $@ $(CFLAGS)
 
 dirs:
 	mkdir -p $(BIN)
