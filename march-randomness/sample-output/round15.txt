@@ -1,0 +1,5 @@
+random seed: 2925462380873281181
+100000000 trials were simulated.
+a 19 or 20 was rolled 39993642 times.
+that's equal to 39.993642% of the time
+time to run: 4.822263 seconds

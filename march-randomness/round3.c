@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
 int *int_rand_no_rep(int min, int max, int size);
 
 int main(void) {
