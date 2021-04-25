@@ -14,8 +14,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-int *int_rand_arr(int min, int max, int size);
-
 int main(void) {
   seed_rand();
 
@@ -52,13 +50,4 @@ int main(void) {
   printf("time to run: %f seconds\n", duration);
 
   return 0;
-}
-
-int *int_rand_arr(int min, int max, int size) {
-  if (size <= 0)
-    return NULL;
-  int *arr = malloc(size * sizeof(int));
-  for (int i = 0; i < size; ++i)
-    arr[i] = int_rand(min, max);
-  return arr;
 }

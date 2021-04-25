@@ -17,8 +17,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-int *int_rand_no_rep(int min, int max, int size);
-
 int main(void) {
   seed_rand();
 
@@ -60,25 +58,4 @@ int main(void) {
   printf("time to run: %f seconds\n", duration);
 
   return 0;
-}
-
-int *int_rand_no_rep(int min, int max, int size) {
-  if (size <= 0)
-    return NULL;
-  int *seen_arr = calloc((size_t)(max + 1), sizeof(int));
-  int *draws = malloc(size * sizeof(int));
-
-  int drawn_ball;
-  for (int i = 0; i < size; ++i) {
-    drawn_ball = int_rand(min, max);
-    if (!seen_arr[drawn_ball]) {
-      draws[i] = drawn_ball;
-    } else {
-      i--;
-    }
-    seen_arr[drawn_ball] = 1;
-  }
-
-  free(seen_arr);
-  return draws;
 }

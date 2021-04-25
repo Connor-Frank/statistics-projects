@@ -11,8 +11,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-int value_in_array(int val, const int *arr, int array_size);
-
 int main(void) {
   seed_rand();
 
@@ -40,12 +38,5 @@ int main(void) {
          (long double)times_all_red / trials * 100.0);
   printf("time to run: %f seconds\n", duration);
 
-  return 0;
-}
-
-int value_in_array(int val, const int *arr, int array_size) {
-  for (int i = 0; i < array_size; i++)
-    if (arr[i] == val)
-      return 1;
   return 0;
 }

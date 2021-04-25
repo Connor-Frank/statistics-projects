@@ -19,22 +19,27 @@ elif [ "$(uname -s)" = "Linux" ]; then
 fi
 
 progressBar() {
-  local w=40 p=$1; shift
-  printf -v dots "%*s" "$(( p*w/100 ))" "" 1>&2
+  local w=40 p=$1
+  shift
+  printf -v dots "%*s" "$((p * w / 100))" "" 1>&2
   dots=${dots// /.}
   printf "\r\e[K|%-*s| %3d %% %s" "$w" "$dots" "$p" "$*" 1>&2
 }
 
 mkdir -p log
-echo "memcheck log" > log/leaks
+echo "memcheck log" >log/leaks
 
-echo "bin path: $(pwd)/$binPathName"; echo
-echo "using $toolName on $unameOut"; echo
+echo "bin path: $(pwd)/$binPathName"
+echo
+echo "using $toolName on $unameOut"
+echo
 for file in "$binPathName"/*; do
   echo "$file"
   toolCmd "$file"
   for x in {1..100}; do
     progressBar "$x" waiting before continuing...
     sleep 0.025
-  done; echo; echo 1>&2
+  done
+  echo
+  echo 1>&2
 done

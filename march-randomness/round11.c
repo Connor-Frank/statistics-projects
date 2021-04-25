@@ -8,12 +8,8 @@
  */
 
 #include "utils.h"
-#include <stdbool.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
-
-bool consecutive(int a, int b, int c);
 
 int main(void) {
   seed_rand();
@@ -45,15 +41,4 @@ int main(void) {
   printf("time to run: %f seconds\n", duration);
 
   return 0;
-}
-
-bool consecutive(int a, int b, int c) {
-  switch (abs(c - a)) {
-  case 2:
-    return (2 * b == a + c);
-  case 1:
-    return consecutive(b, c, a);
-  default:
-    return false;
-  }
 }
