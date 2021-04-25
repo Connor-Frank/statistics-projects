@@ -5,11 +5,11 @@
 void seed_rand(void) {
   FILE *fp;
   fp = fopen("/dev/random", "r");
-  unsigned long long rand_seed;
+  unsigned int rand_seed;
   fread(&rand_seed, sizeof(rand_seed), sizeof(char), fp);
   fclose(fp);
-  printf("random seed: %llu\n", rand_seed);
-  srand((unsigned int)rand_seed);
+  printf("random seed: %u\n", rand_seed);
+  srand(rand_seed);
 }
 
 int int_rand(int min, int max) {
@@ -25,26 +25,19 @@ int *int_rand_no_rep(int min, int max, int size) {
   seen_arr = calloc((size_t)(max + 1), sizeof(*seen_arr));
   int *draws = malloc(size * sizeof(int));
 
-  int drawn_ball;
+  int drawn;
   for (int i = 0; i < size; ++i) {
-    drawn_ball = int_rand(min, max);
-    if (!seen_arr[drawn_ball]) {
-      draws[i] = drawn_ball;
+    drawn = int_rand(min, max);
+    if (!seen_arr[drawn]) {
+      draws[i] = drawn;
     } else {
       i--;
     }
-    seen_arr[drawn_ball]++;
+    seen_arr[drawn]++;
   }
 
   free(seen_arr);
   return draws;
-}
-
-int value_in_array(int val, const int *arr, int array_size) {
-  for (int i = 0; i < array_size; i++)
-    if (arr[i] == val)
-      return 1;
-  return 0;
 }
 
 int *int_rand_arr(int min, int max, int size) {
@@ -56,13 +49,27 @@ int *int_rand_arr(int min, int max, int size) {
   return arr;
 }
 
-bool consecutive(int a, int b, int c) {
+int value_in_array(int val, const int *arr, int len) {
+  for (int i = 0; i < len; i++)
+    if (arr[i] == val)
+      return 1;
+  return 0;
+}
+
+int consecutive(int a, int b, int c) {
   switch (abs(c - a)) {
   case 2:
     return (2 * b == a + c);
   case 1:
     return consecutive(b, c, a);
   default:
-    return false;
+    return 0;
   }
+}
+
+int all_equal(const int *arr, int len) {
+  for (int i = 0; i < len; i++)
+    if (arr[0] != arr[i])
+      return 0;
+  return 1;
 }

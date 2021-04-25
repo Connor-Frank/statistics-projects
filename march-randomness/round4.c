@@ -18,12 +18,9 @@ int main(void) {
 
   clock_t start = clock();
 
-  int roll;
-
   for (long i = 0; i < trials; i++) {
     for (int j = 0; j < num_rolls; j++) {
-      roll = int_rand(1, 6);
-      if (roll == 2) {
+      if (int_rand(1, 6) == 2) {
         times_has_two++;
         break;
       }

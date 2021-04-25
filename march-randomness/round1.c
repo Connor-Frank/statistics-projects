@@ -15,9 +15,10 @@ int main(void) {
 
   long times = 0;
   long trials = (long)1e+8; // 1e+8 takes about 1.1 seconds, 1e+9 takes about 11
-  int die1, die2, sum;
 
   clock_t start = clock();
+
+  int die1, die2, sum;
 
   for (long i = 0; i < trials; i++) {
     die1 = int_rand(1, 20); // one die has 20 sides

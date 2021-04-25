@@ -1,4 +1,4 @@
-random seed: 16587184756874053118
-sum was >= 20 68962275 times out of 100000000 trials
-that's equal to 68.962275% of the time
-time to run: 1.148235 seconds
+random seed: 2231282656
+sum was >= 20 71495847 times out of 100000000 trials
+that's equal to 71.495847% of the time
+time to run: 2.482860 seconds

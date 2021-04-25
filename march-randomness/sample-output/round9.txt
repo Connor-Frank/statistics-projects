@@ -1,5 +1,5 @@
-random seed: 5590038043576041135
+random seed: 500223622
 10000000 trials were simulated.
-4x of the same side for 6873314 times.
-that's equal to 68.733140% of the time
-time to run: 2.467542 seconds
+4x of the same side for 6873534 times.
+that's equal to 68.735340% of the time
+time to run: 0.924088 seconds

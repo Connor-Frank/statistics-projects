@@ -1,5 +1,5 @@
-random seed: 2200077305328130837
+random seed: 2370096255
 100000000 trials were simulated.
-all three balls were red 72900088 times.
-that's equal to 72.900088% of the time
-time to run: 4.309426 seconds
+all three balls were red 72900783 times.
+that's equal to 72.900783% of the time
+time to run: 4.177216 seconds

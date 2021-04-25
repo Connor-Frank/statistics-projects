@@ -11,8 +11,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-int all_equal(const int *a, int len);
-
 int main(void) {
   seed_rand();
 
@@ -52,11 +50,4 @@ int main(void) {
   printf("time to run: %f seconds\n", duration);
 
   return 0;
-}
-
-int all_equal(const int *a, int len) {
-  for (int i = 0; i < len; i++)
-    if (a[0] != a[i])
-      return false;
-  return true;
 }

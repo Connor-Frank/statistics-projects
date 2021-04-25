@@ -1,5 +1,7 @@
 #!/bin/bash
 
+make clean all
+
 touch log/leaks
 exec > >(tee -a log/leaks)
 

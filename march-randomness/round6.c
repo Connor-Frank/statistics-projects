@@ -34,9 +34,7 @@ int main(void) {
   for (long i = 0; i < trials; i++) {
     red = int_rand(1, 3);
     green = int_rand(4, 6);
-    if (red == 1 && (green == 4 || green == 5)) {
-      times_same++;
-    } else if (green == 6 && (red == 2 || red == 3)) {
+    if ((red == 1 && green <= 5) || (green == 6 && red >= 2)) {
       times_same++;
     }
   }
