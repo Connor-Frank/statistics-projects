@@ -1,6 +1,9 @@
 # don't add bin directories
 bin
 
+# don't add obj directories
+obj
+
 # don't add diagnostic logs
 log
 

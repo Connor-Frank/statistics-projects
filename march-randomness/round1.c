@@ -6,20 +6,13 @@
  * Will the sum of the results be at least 20?
  */
 
+#include "utils.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-float float_rand(float min, float max);
-
 int main(void) {
-  FILE *fp;
-  fp = fopen("/dev/random", "r");
-  unsigned long long rand_seed;
-  fread(&rand_seed, sizeof(rand_seed), sizeof(char), fp);
-  fclose(fp);
-  printf("random seed: %llu\n", rand_seed);
-  srand((unsigned int)rand_seed);
+  seed_rand();
 
   long times = 0;
   long trials = (long)1e+8; // 1e+8 takes about 1.1 seconds, 1e+9 takes about 11
@@ -28,9 +21,9 @@ int main(void) {
   clock_t start = clock();
 
   for (long i = 0; i < trials; i++) {
-    die1 = (int)float_rand(1, 20); // one die has 20 sides
-    die2 = (int)float_rand(1, 30); // the other has 30
-    sum = die1 + die2;             // find sum
+    die1 = int_rand(1, 20); // one die has 20 sides
+    die2 = int_rand(1, 30); // the other has 30
+    sum = die1 + die2;      // find sum
     if (sum >= 20) {
       times++;
     }
@@ -45,9 +38,4 @@ int main(void) {
   printf("time to run: %f seconds\n", duration);
 
   return 0;
-}
-
-float float_rand(float min, float max) {
-  float scale = rand() / (float)RAND_MAX;
-  return min + scale * (max - min);
 }

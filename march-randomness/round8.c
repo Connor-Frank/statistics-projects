@@ -11,12 +11,11 @@
  * Will they both be red?
  */
 
+#include "utils.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-void seed_rand(void);
-int int_rand(int min, int max);
 int *int_rand_no_rep(int min, int max, int size);
 int value_in_array(int val, const int *arr, int array_size);
 
@@ -83,22 +82,6 @@ int main(void) {
   printf("time to run: %f seconds\n", duration);
 
   return 0;
-}
-
-void seed_rand(void) {
-  FILE *fp;
-  fp = fopen("/dev/random", "r");
-  unsigned long long rand_seed;
-  fread(&rand_seed, sizeof(rand_seed), sizeof(char), fp);
-  fclose(fp);
-  printf("random seed: %llu\n", rand_seed);
-  srand((unsigned int)rand_seed);
-}
-
-int int_rand(int min, int max) {
-  if (min >= max)
-    printf("you messed up.\n");
-  return (rand() % (max - min + 1)) + min;
 }
 
 int *int_rand_no_rep(int min, int max, int size) {

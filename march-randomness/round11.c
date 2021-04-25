@@ -7,14 +7,13 @@
  * Will the results be in strictly increasing order?
  */
 
+#include "utils.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 bool consecutive(int a, int b, int c);
-void seed_rand(void);
-int int_rand(int min, int max);
 
 int main(void) {
   seed_rand();
@@ -57,20 +56,4 @@ bool consecutive(int a, int b, int c) {
   default:
     return false;
   }
-}
-
-void seed_rand(void) {
-  FILE *fp;
-  fp = fopen("/dev/random", "r");
-  unsigned long long rand_seed;
-  fread(&rand_seed, sizeof(rand_seed), sizeof(char), fp);
-  fclose(fp);
-  printf("random seed: %llu\n", rand_seed);
-  srand((unsigned int)rand_seed);
-}
-
-int int_rand(int min, int max) {
-  if (min >= max)
-    printf("you messed up.\n");
-  return (rand() % (max - min + 1)) + min;
 }

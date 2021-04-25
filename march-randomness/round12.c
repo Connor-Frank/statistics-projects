@@ -6,14 +6,13 @@
  * Will both be red?
  */
 
+#include "utils.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 int all_equal(const int *a, int len);
-void seed_rand(void);
-int int_rand(int min, int max);
 int *int_rand_no_rep(int min, int max, int size);
 
 int main(void) {
@@ -62,22 +61,6 @@ int all_equal(const int *a, int len) {
     if (a[0] != a[i])
       return false;
   return true;
-}
-
-void seed_rand(void) {
-  FILE *fp;
-  fp = fopen("/dev/random", "r");
-  unsigned long long rand_seed;
-  fread(&rand_seed, sizeof(rand_seed), sizeof(char), fp);
-  fclose(fp);
-  printf("random seed: %llu\n", rand_seed);
-  srand((unsigned int)rand_seed);
-}
-
-int int_rand(int min, int max) {
-  if (min >= max)
-    printf("you messed up.\n");
-  return (rand() % (max - min + 1)) + min;
 }
 
 int *int_rand_no_rep(int min, int max, int size) {

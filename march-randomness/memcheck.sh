@@ -1,5 +1,6 @@
 #!/bin/bash
 
+touch log/leaks
 exec > >(tee -a log/leaks)
 
 binPathName="bin"
