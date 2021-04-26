@@ -8,12 +8,14 @@
 void seed_rand(void);
 
 /*
- * Returns a random integer between min and max, inclusive.
+ * Returns a random integer in a range, including the minimum and maximum
+ * values of that range.
  */
 int int_rand(int min, int max);
 
 /*
- * Returns an array of random integers with no duplicates.
+ * Returns an array of random integers in a range with no duplicate values. The
+ * minimum value of the range cannot be negative.
  *
  * IMPORTANT: The array must be deallocated. An example is below:
  *
@@ -22,12 +24,14 @@ int int_rand(int min, int max);
  *   // do stuff here
  *   free(arr);
  * }
+ *
  */
 int *int_rand_no_rep(int min, int max, int size);
 
 /*
- * Returns an array of random integers. Similar to int_rand_no_rep, but allows
- * duplicates. Remember to deallocate the array.
+ * Returns an array of random integers in a range. Similar to int_rand_no_rep,
+ * but allows duplicates and negative minimum values. Remember to deallocate
+ * the array.
  */
 int *int_rand_arr(int min, int max, int size);
 
