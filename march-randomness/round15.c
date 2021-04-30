@@ -28,11 +28,7 @@ int main(void) {
   clock_t end = clock();
   double duration = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-  printf("%ld trials were simulated.\n", trials);
-  printf("a 19 or 20 was rolled %ld times.\n", top_two);
-  printf("that's equal to %Lf%% of the time\n",
-         (long double)top_two / trials * 100.0);
-  printf("time to run: %f seconds\n", duration);
+  results("a 19 or 20 was rolled", top_two, trials, duration);
 
   return 0;
 }

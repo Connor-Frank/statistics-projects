@@ -32,11 +32,7 @@ int main(void) {
   clock_t end = clock();
   double duration = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-  printf("%ld trials were simulated.\n", trials);
-  printf("1 coin landed on heads %ld times.\n", times_exactly_one);
-  printf("that's equal to %Lf%% of the time\n",
-         (long double)times_exactly_one / trials * 100.0);
-  printf("time to run: %f seconds\n", duration);
+  results("1 coin landed on heads", times_exactly_one, trials, duration);
 
   return 0;
 }

@@ -43,11 +43,7 @@ int main(void) {
   clock_t end = clock();
   double duration = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-  printf("%ld trials were simulated.\n", trials);
-  printf("4x of the same side for %ld times.\n", times_where_four);
-  printf("that's equal to %Lf%% of the time\n",
-         (long double)times_where_four / trials * 100.0);
-  printf("time to run: %f seconds\n", duration);
+  results("4x of the same side for", times_where_four, trials, duration);
 
   return 0;
 }

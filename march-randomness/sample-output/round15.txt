@@ -1,5 +1,6 @@
-random seed: 4249731901
-100000000 trials were simulated.
-a 19 or 20 was rolled 40001651 times.
-that's equal to 40.001651% of the time
-time to run: 4.863880 seconds
+random seed: 547837617
+100000000 trials were simulated
+a 19 or 20 was rolled 40007493 times
+that's equal to 40.007493% of the time
+time to run: 2.663522 seconds
+random numbers generated: 400000000

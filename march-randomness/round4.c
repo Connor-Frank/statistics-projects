@@ -30,11 +30,7 @@ int main(void) {
   clock_t end = clock();
   double duration = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-  printf("%ld trials were simulated.\n", trials);
-  printf("a 2 was rolled at least once %ld times.\n", times_has_two);
-  printf("that's equal to %Lf%% of the time\n",
-         (long double)times_has_two / trials * 100.0);
-  printf("time to run: %f seconds\n", duration);
+  results("a 2 was rolled at least once", times_has_two, trials, duration);
 
   return 0;
 }

@@ -1,5 +1,6 @@
-random seed: 1044504101
-50000000 trials were simulated.
-both balls were red 27272858 times.
-that's equal to 54.545716% of the time
-time to run: 3.367041 seconds
+random seed: 870996863
+50000000 trials were simulated
+both balls were red 27273267 times
+that's equal to 54.546534% of the time
+time to run: 3.864894 seconds
+random numbers generated: 104551127

@@ -9,6 +9,14 @@
 void error_msg(const char *message);
 
 /*
+ * Prints a multi-line message containing the results of the program. The
+ * message should be formatted such that it can precede "x times". Also prints
+ * the duration of time the program took to run and the number of random
+ * numbers that were generated.
+ */
+void results(const char *msg, long times, long trials, double duration);
+
+/*
  * Seeds the random number generator using four bytes from /dev/random. Should
  * be called once at the beginning of every program.
  */
@@ -51,7 +59,7 @@ int value_in_array(int val, const int *arr, int len);
 /*
  * Returns whether three integer values are consecutive.
  */
-int consecutive(int a, int b, int c);
+int consecutive(const int a, const int b, const int c);
 
 /*
  * Returns whether all values of an array are equal.

@@ -33,12 +33,8 @@ int main(void) {
   clock_t end = clock();
   double duration = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-  printf("%ld trials were simulated.\n", trials);
-  printf("the results were in strictly increasing order %ld times.\n",
-         times_increasing);
-  printf("that's equal to %Lf%% of the time\n",
-         (long double)times_increasing / trials * 100.0);
-  printf("time to run: %f seconds\n", duration);
+  results("the results were in strictly increasing order", times_increasing,
+          trials, duration);
 
   return 0;
 }

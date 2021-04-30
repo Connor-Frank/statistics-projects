@@ -1,5 +1,6 @@
-random seed: 313048659
-10000000 trials were simulated.
-the final drawn ball was red 6534771 times.
-that's equal to 65.347710% of the time
-time to run: 1.885374 seconds
+random seed: 744632974
+10000000 trials were simulated
+the final drawn ball was red 6532604 times
+that's equal to 65.326040% of the time
+time to run: 1.854397 seconds
+random numbers generated: 57500556

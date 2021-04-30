@@ -32,10 +32,7 @@ int main(void) {
   clock_t end = clock();
   double duration = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-  printf("sum was >= 20 %ld times out of %ld trials\n", times, trials);
-  printf("that's equal to %Lf%% of the time\n",
-         (long double)times / trials * 100.0);
-  printf("time to run: %f seconds\n", duration);
+  results("the sum was >= 20", times, trials, duration);
 
   return 0;
 }

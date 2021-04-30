@@ -43,11 +43,7 @@ int main(void) {
   clock_t end = clock();
   double duration = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-  printf("%ld trials were simulated.\n", trials);
-  printf("both balls were red %ld times.\n", times_both_red);
-  printf("that's equal to %Lf%% of the time\n",
-         (long double)times_both_red / trials * 100.0);
-  printf("time to run: %f seconds\n", duration);
+  results("both balls were red", times_both_red, trials, duration);
 
   return 0;
 }

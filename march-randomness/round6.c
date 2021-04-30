@@ -42,11 +42,7 @@ int main(void) {
   clock_t end = clock();
   double duration = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-  printf("%ld trials were simulated.\n", trials);
-  printf("the same letters were drawn %ld times.\n", times_same);
-  printf("that's equal to %Lf%% of the time\n",
-         (long double)times_same / trials * 100.0);
-  printf("time to run: %f seconds\n", duration);
+  results("the same letters were drawn", times_same, trials, duration);
 
   return 0;
 }
