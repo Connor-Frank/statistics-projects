@@ -2,6 +2,13 @@
 #define MARCH_RANDOMNESS_UTILS_H_
 
 /*
+ * Simple function to handle critical errors. Prints the error to stderr (with
+ * a newline automatically appended) and provides a stacktrace before killing
+ * the program.
+ */
+void error_msg(const char *message);
+
+/*
  * Seeds the random number generator using four bytes from /dev/random. Should
  * be called once at the beginning of every program.
  */

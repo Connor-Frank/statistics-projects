@@ -1,6 +1,17 @@
 #include "utils.h"
+#include <execinfo.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+#define STACK_LEVELS 100
+
+void error_msg(const char *message) {
+  fprintf(stderr, "%s\n", message);
+  void *buffer[STACK_LEVELS];
+  int levels = backtrace(buffer, STACK_LEVELS);
+  backtrace_symbols_fd(buffer + 1, levels - 1, 2);
+  exit(EXIT_FAILURE);
+}
 
 void seed_rand(void) {
   FILE *fp;
@@ -14,15 +25,14 @@ void seed_rand(void) {
 
 int int_rand(int min, int max) {
   if (min >= max)
-    printf("you messed up.\n");
+    error_msg("minimum value is less than maximum value.");
   return (rand() % (max - min + 1)) + min;
 }
 
 int *int_rand_no_rep(int min, int max, int size) {
   if (size <= 0)
-    return NULL;
-  int *seen_arr = NULL;
-  seen_arr = calloc((size_t)(max + 1), sizeof(*seen_arr));
+    error_msg("invalid size of random number array.");
+  int *seen_arr = calloc((size_t)(max + 1), sizeof(*seen_arr));
   int *draws = malloc(size * sizeof(int));
 
   int drawn;
@@ -42,7 +52,7 @@ int *int_rand_no_rep(int min, int max, int size) {
 
 int *int_rand_arr(int min, int max, int size) {
   if (size <= 0)
-    return NULL;
+    error_msg("invalid size of random number array.");
   int *arr = malloc(size * sizeof(int));
   for (int i = 0; i < size; ++i)
     arr[i] = int_rand(min, max);
