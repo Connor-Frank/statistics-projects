@@ -35,19 +35,21 @@ void seed_rand(void) {
 }
 
 int int_rand(int min, int max) {
-  if (min >= max)
+  if (min >= max) {
     error_msg("minimum value is less than maximum value.");
+  }
   numbers_generated++;
   return (rand() % (max - min + 1)) + min;
 }
 
 int *int_rand_no_rep(int min, int max, int len) {
-  if (len <= 0)
+  if (len <= 0) {
     error_msg("invalid length of random number array.");
+  }
   int *seen_arr = calloc((size_t)(max + 1), sizeof(*seen_arr));
   int *draws = malloc(len * sizeof(int));
-
   int drawn;
+
   for (int i = 0; i < len; ++i) {
     drawn = int_rand(min, max);
     if (!seen_arr[drawn]) {
@@ -63,18 +65,22 @@ int *int_rand_no_rep(int min, int max, int len) {
 }
 
 int *int_rand_arr(int min, int max, int len) {
-  if (len <= 0)
+  if (len <= 0) {
     error_msg("invalid length of random number array.");
+  }
   int *arr = malloc(len * sizeof(int));
-  for (int i = 0; i < len; ++i)
+  for (int i = 0; i < len; ++i) {
     arr[i] = int_rand(min, max);
+  }
   return arr;
 }
 
 int value_in_array(int val, const int *arr, int len) {
-  for (int i = 0; i < len; i++)
-    if (arr[i] == val)
+  for (int i = 0; i < len; ++i) {
+    if (arr[i] == val) {
       return 1;
+    }
+  }
   return 0;
 }
 
@@ -90,8 +96,10 @@ int consecutive(const int a, const int b, const int c) {
 }
 
 int all_equal(const int *arr, int len) {
-  for (int i = 0; i < len; i++)
-    if (arr[0] != arr[i])
+  for (int i = 0; i < len; ++i) {
+    if (arr[0] != arr[i]) {
       return 0;
+    }
+  }
   return 1;
 }
