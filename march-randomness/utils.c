@@ -2,6 +2,7 @@
 #include <execinfo.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define STACK_LEVELS 100
 
@@ -24,15 +25,41 @@ void results(const char *msg, long times, long trials, double duration) {
   printf("random numbers generated: %ld\n", numbers_generated);
 }
 
+#if __unix__
+
 void seed_rand(void) {
-  FILE *fp;
-  fp = fopen("/dev/random", "r");
-  unsigned int rand_seed;
-  fread(&rand_seed, sizeof(rand_seed), sizeof(char), fp);
-  fclose(fp);
-  printf("random seed: %u\n", rand_seed);
-  srand(rand_seed);
+  struct timespec ts;
+  if (timespec_get(&ts, TIME_UTC) == 0) {
+    error_msg("problem seeding the pseudorandom number generator");
+  } else {
+    unsigned int seed = ts.tv_nsec ^ ts.tv_sec;
+    printf("random seed: %i\n", seed);
+    srand(seed);
+  }
 }
+
+#elif _WIN32
+
+#include <Bcrypt.h>
+#include <Ntstatus.h>
+#include <Wincrypt.h>
+#include <Windows.h>
+
+void seed_rand(void) {
+  BCRYPT_ALG_HANDLE hAlgorithm = NULL;
+  long rand_buf;
+  PUCHAR pbBuffer = (PUCHAR)&rand_buf;
+  ULONG cbBuffer = sizeof(rand_buf);
+  ULONG dwFlags = BCRYPT_USE_SYSTEM_PREFERRED_RNG;
+  NTSTATUS status = BCryptGenRandom(hAlgorithm, pbBuffer, cbBuffer, dwFlags);
+  if (status == STATUS_SUCCESS) {
+    srand(rand_buf);
+  } else {
+    error_msg("problem seeding the pseudorandom number generator");
+  }
+}
+
+#endif
 
 int int_rand(int min, int max) {
   if (min >= max) {
