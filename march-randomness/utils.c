@@ -9,7 +9,7 @@
 static long numbers_generated = 0;
 
 void error_msg(const char *msg) {
-  fprintf(stderr, "%s\n", msg);
+  fprintf(stderr, "%s\n\n", msg);
   void *buffer[STACK_LEVELS];
   const int levels = backtrace(buffer, STACK_LEVELS);
   backtrace_symbols_fd(buffer + 1, levels - 1, 2);
@@ -40,6 +40,11 @@ void seed_rand(void) {
 
 #elif _WIN32
 
+/*
+ * IMPORTANT NOTE: This code *seems* like it should compile properly on Windows,
+ * but it hasn't been tested. ¯\_(ツ)_/¯
+ */
+
 #include <Bcrypt.h>
 #include <Ntstatus.h>
 #include <Wincrypt.h>
@@ -47,7 +52,7 @@ void seed_rand(void) {
 
 void seed_rand(void) {
   BCRYPT_ALG_HANDLE hAlgorithm = NULL;
-  long rand_buf;
+  unsigned int rand_buf;
   PUCHAR pbBuffer = (PUCHAR)&rand_buf;
   ULONG cbBuffer = sizeof(rand_buf);
   ULONG dwFlags = BCRYPT_USE_SYSTEM_PREFERRED_RNG;

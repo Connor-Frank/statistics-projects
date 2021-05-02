@@ -17,8 +17,12 @@ void error_msg(const char *message);
 void results(const char *msg, long times, long trials, double duration);
 
 /*
- * Seeds the random number generator using four bytes from /dev/random. Should
- * be called once at the beginning of every program.
+ * Seeds the random number generator. Should be called once at the beginning of
+ * every program. The method it uses is dependent on operating system:
+ *
+ * POSIX - seeds the random number generator using the system clock.
+ * Windows - theoretically uses BCryptGenRandom() to generate a random seed for
+ *           rand(), but the code is untested. Your guess is as good as mine.
  */
 void seed_rand(void);
 
