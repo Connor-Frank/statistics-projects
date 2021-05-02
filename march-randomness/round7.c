@@ -13,7 +13,7 @@ int main(void) {
   seed_rand();
 
   long times_same = 0;
-  long trials = (long)1e+8; // takes about 5 seconds to run
+  const long trials = (long)1e+8; // takes about 5 seconds to run
 
   clock_t start = clock();
 

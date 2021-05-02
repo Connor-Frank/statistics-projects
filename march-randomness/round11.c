@@ -15,17 +15,12 @@ int main(void) {
   seed_rand();
 
   long times_increasing = 0;
-  long trials = (long)1e+8; // takes about 2 seconds
+  const long trials = (long)1e+8; // takes about 2 seconds
 
   clock_t start = clock();
 
-  int ten_sided, twenty_sided, thirty_sided;
-
   for (long i = 0; i < trials; i++) {
-    ten_sided = int_rand(1, 10);
-    twenty_sided = int_rand(1, 20);
-    thirty_sided = int_rand(1, 30);
-    if (consecutive(ten_sided, twenty_sided, thirty_sided)) {
+    if (consecutive(int_rand(1, 10), int_rand(1, 20), int_rand(1, 30))) {
       times_increasing++;
     }
   }

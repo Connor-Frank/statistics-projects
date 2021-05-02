@@ -20,10 +20,10 @@ int main(void) {
   seed_rand();
 
   long times_both_red = 0;
-  long trials = (long)1e+7; // takes about 4 seconds to run
+  const long trials = (long)1e+7; // takes about 4 seconds to run
 
-  int reds[6] = {0, 1, 2, 3, 4, 5};
-  int blues[6] = {6, 7, 8, 9, 10, 11};
+  const int reds[6] = {0, 1, 2, 3, 4, 5};
+  const int blues[6] = {6, 7, 8, 9, 10, 11};
 
   clock_t start = clock();
 

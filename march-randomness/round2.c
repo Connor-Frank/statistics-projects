@@ -13,20 +13,23 @@ int main(void) {
   seed_rand();
 
   long times_exactly_one = 0;
-  long trials = (long)1e+8; // takes about 2.3 seconds
-  int coin1, coin2, coin3, coin4, coin_sum;
+  const long trials = (long)1e+8; // takes about 2.3 seconds
+  int coin_sum;
 
   clock_t start = clock();
 
   for (long i = 0; i < trials; i++) {
-    /* 0 is tails, 1 is heads */
-    coin1 = int_rand(0, 1);
-    coin2 = int_rand(0, 1);
-    coin3 = int_rand(0, 1);
-    coin4 = int_rand(0, 1);
-    coin_sum = coin1 + coin2 + coin3 + coin4;
-    if (coin_sum == 1)
+    /*
+     * 0 is tails
+     * 1 is heads
+     */
+    coin_sum = 0;
+    for (int j = 0; j < 4 && coin_sum < 2; j++) {
+      coin_sum += int_rand(0, 1);
+    }
+    if (coin_sum == 1) {
       times_exactly_one++;
+    }
   }
 
   clock_t end = clock();

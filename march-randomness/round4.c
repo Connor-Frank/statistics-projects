@@ -13,8 +13,8 @@ int main(void) {
   seed_rand();
 
   long times_has_two = 0;
-  long trials = (long)1e+8; // takes about 2.6 seconds
-  int num_rolls = 6;
+  const long trials = (long)1e+8; // takes about 2.6 seconds
+  const int num_rolls = 6;
 
   clock_t start = clock();
 

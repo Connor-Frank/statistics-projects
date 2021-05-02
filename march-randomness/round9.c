@@ -18,7 +18,7 @@ int main(void) {
   seed_rand();
 
   long times_where_four = 0;
-  long trials = (long)1e+7; // takes about 2.5 seconds
+  const long trials = (long)1e+7; // takes about 2.5 seconds
 
   clock_t start = clock();
 
@@ -28,14 +28,18 @@ int main(void) {
       int times_heads = 0;
       int times_tails = 0;
       for (int j = 0; j < 6; j++) {
-        if (flips[j] == 0) {
+        switch (flips[j]) {
+        case 0:
           times_heads++;
-        } else if (flips[j] == 1) {
+          break;
+        case 1:
           times_tails++;
+          break;
         }
       }
-      if (times_heads >= 4 || times_tails >= 4)
+      if (times_heads >= 4 || times_tails >= 4) {
         times_where_four++;
+      }
       free(flips);
     }
   }

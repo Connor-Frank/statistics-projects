@@ -16,15 +16,17 @@ int main(void) {
   seed_rand();
 
   long times_both_red = 0;
-  long trials = (long)1e+7; // takes about 1.4 seconds
+  const long trials = (long)1e+7; // takes about 0.85 seconds
 
   clock_t start = clock();
 
   for (long i = 0; i < trials; i++) {
-    int *draws = int_rand_no_rep(1, 4, 4);
+    int *draws = int_rand_no_rep(1, 4, 2);
     if (draws) {
-      if (draws[0] + draws[1] == 3) // 1 and 2 are red, 3 and 4 are blue
+      // 1 and 2 are red, 3 and 4 are blue
+      if (draws[0] + draws[1] == 3) {
         times_both_red++;
+      }
       free(draws);
     }
   }

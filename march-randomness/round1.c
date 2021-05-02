@@ -14,17 +14,13 @@ int main(void) {
   seed_rand();
 
   long times = 0;
-  long trials = (long)1e+8; // 1e+8 takes about 1.1 seconds, 1e+9 takes about 11
+  const long trials = (long)1e+8; // 1e+8 takes about 1.1 seconds
 
   clock_t start = clock();
 
-  int die1, die2, sum;
-
   for (long i = 0; i < trials; i++) {
-    die1 = int_rand(1, 20); // one die has 20 sides
-    die2 = int_rand(1, 30); // the other has 30
-    sum = die1 + die2;      // find sum
-    if (sum >= 20) {
+    // one die has 20 sides and the other has 30
+    if (int_rand(1, 20) + int_rand(1, 30) >= 20) {
       times++;
     }
   }

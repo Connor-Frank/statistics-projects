@@ -13,7 +13,7 @@ int main(void) {
   seed_rand();
 
   long top_two = 0;
-  long trials = (long)1e8; // takes just under 5 seconds
+  const long trials = (long)1e8; // takes just under 5 seconds
 
   clock_t start = clock();
 

@@ -15,7 +15,7 @@ int main(void) {
   seed_rand();
 
   long red_picked = 0;
-  long trials = (long)1e7; // takes under 1.5 seconds
+  const long trials = (long)1e7; // takes under 1.5 seconds
 
   clock_t start = clock();
 

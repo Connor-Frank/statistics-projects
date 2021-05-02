@@ -15,18 +15,19 @@ int main(void) {
   seed_rand();
 
   long times_all_red = 0;
-  long trials = (long)1e+8;
-  int num_draws = 3;
+  const long trials = (long)1e+8;
+  const int num_draws = 3;
 
   clock_t start = clock();
 
   for (long i = 0; i < trials; i++) {
-    int *balls = malloc(num_draws * sizeof(int));
-    for (int j = 0; j < num_draws; j++)
-      balls[j] = int_rand(1, 10);
-    if (!value_in_array(1, balls, num_draws))
-      times_all_red++;
-    free(balls);
+    int *balls = int_rand_arr(1, 10, num_draws);
+    if (balls) {
+      if (!value_in_array(1, balls, num_draws)) {
+        times_all_red++;
+      }
+      free(balls);
+    }
   }
 
   clock_t end = clock();
