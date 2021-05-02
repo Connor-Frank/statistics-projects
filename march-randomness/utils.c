@@ -25,7 +25,7 @@ void results(const char *msg, long times, long trials, double duration) {
   printf("random numbers generated: %ld\n", numbers_generated);
 }
 
-#if __unix__
+#if __unix__ || __APPLE__
 
 void seed_rand(void) {
   struct timespec ts;
