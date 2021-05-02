@@ -1,0 +1,14 @@
+#!/bin/sh
+
+make clean all
+
+binPathName="bin"
+
+echo "bin path: $(pwd)/$binPathName"
+echo
+
+for file in "$binPathName"/*; do
+  echo "$file"
+  ./"$file"
+  echo
+done
