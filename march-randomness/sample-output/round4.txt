@@ -1,6 +1,6 @@
-random seed: 3406505828
+random seed: 1768215487
 100000000 trials were simulated
-a 2 was rolled at least once 66503652 times
-that's equal to 66.503652% of the time
-time to run: 3.267150 seconds
-random numbers generated: 399065479
+a 2 was rolled at least once 66501994 times
+that's equal to 66.501994% of the time
+time to run: 3.242274 seconds
+random numbers generated: 399063350

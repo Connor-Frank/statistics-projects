@@ -1,6 +1,6 @@
-random seed: 2435718124
+random seed: 1408038359
 100000000 trials were simulated
-the sum was >= 20 71499868 times
-that's equal to 71.499868% of the time
-time to run: 1.368902 seconds
+the sum was >= 20 71496733 times
+that's equal to 71.496733% of the time
+time to run: 1.355096 seconds
 random numbers generated: 200000000

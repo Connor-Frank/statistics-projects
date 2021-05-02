@@ -1,6 +1,6 @@
-random seed: 3945721643
+random seed: 1093588305
 10000000 trials were simulated
-both pouch 3 balls were red 5356268 times
-that's equal to 53.562680% of the time
-time to run: 2.878641 seconds
-random numbers generated: 67329622
+both pouch 3 balls were red 5356269 times
+that's equal to 53.562690% of the time
+time to run: 2.780458 seconds
+random numbers generated: 67340929
