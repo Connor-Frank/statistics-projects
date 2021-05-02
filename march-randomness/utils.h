@@ -14,7 +14,7 @@ void error_msg(const char *message);
  * the duration of time the program took to run and the number of random
  * numbers that were generated.
  */
-void results(const char *msg, long times, long trials, double duration);
+void results(const char *msg, long times, const long trials, double duration);
 
 /*
  * Seeds the random number generator. Should be called once at the beginning of
