@@ -107,7 +107,7 @@ int *int_rand_arr(int min, int max, int len) {
   return arr;
 }
 
-int value_in_array(int val, const int *arr, int len) {
+int value_in_array(int val, const int *arr, const int len) {
   for (int i = 0; i < len; ++i) {
     if (arr[i] == val) {
       return 1;
@@ -127,11 +127,23 @@ int consecutive(const int a, const int b, const int c) {
   }
 }
 
-int all_equal(const int *arr, int len) {
+int all_equal(const int *arr, const int len) {
   for (int i = 0; i < len; ++i) {
     if (arr[0] != arr[i]) {
       return 0;
     }
   }
   return 1;
+}
+
+int find_sums(const int *arr, const int len, int target, int current, int i) {
+  if (i == len) {
+    if (target == current) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+  return find_sums(arr, len, target, current + arr[i], i + 1) +
+         find_sums(arr, len, target, current - arr[i], i + 1);
 }

@@ -11,8 +11,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-int find_sums(int *arr, int target, int current, int i, int len);
-
 int main(void) {
   seed_rand();
 
@@ -26,7 +24,7 @@ int main(void) {
   for (long i = 0; i < trials; i++) {
     int *dice_rolls = int_rand_arr(1, 6, num_dice);
     if (dice_rolls) {
-      if (find_sums(dice_rolls, 8, 0, 0, num_dice)) {
+      if (find_sums(dice_rolls, num_dice, 8, 0, 0)) {
         times_eight++;
       }
       free(dice_rolls);
@@ -39,16 +37,4 @@ int main(void) {
   results("there was a sum of exactly eight", times_eight, trials, duration);
 
   return 0;
-}
-
-int find_sums(int *arr, int target, int current, int i, int len) {
-  if (i == len) {
-    if (target == current) {
-      return 1;
-    } else {
-      return 0;
-    }
-  }
-  return find_sums(arr, target, current + arr[i], i + 1, len) +
-         find_sums(arr, target, current - arr[i], i + 1, len);
 }
