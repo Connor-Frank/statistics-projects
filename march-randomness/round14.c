@@ -11,7 +11,6 @@
  */
 
 #include "utils.h"
-#include <stdio.h>
 #include <time.h>
 
 #define A 1

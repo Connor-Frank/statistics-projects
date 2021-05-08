@@ -1,6 +1,6 @@
 CC = gcc
 
-GENERAL = -std=c11 -O2
+GENERAL = -std=gnu11 -O2
 MATHOPTS = -fmerge-all-constants -fno-math-errno
 OTHEROPTS = -funroll-loops -flto
 # documentation for compiler optimizations:

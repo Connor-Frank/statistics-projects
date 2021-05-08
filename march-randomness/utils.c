@@ -32,10 +32,18 @@ void seed_rand(void) {
   if (timespec_get(&ts, TIME_UTC) == 0) {
     error_msg("problem seeding the pseudorandom number generator");
   } else {
-    unsigned int seed = ts.tv_nsec ^ ts.tv_sec;
-    printf("random seed: %i\n", seed);
-    srand(seed);
+    __syscall_slong_t seed = ts.tv_nsec ^ ts.tv_sec;
+    printf("random seed: %li\n", seed);
+    srandom(seed);
   }
+}
+
+int int_rand(int min, int max) {
+  if (min >= max) {
+    error_msg("minimum value is less than maximum value.");
+  }
+  numbers_generated++;
+  return (random() % (max - min + 1)) + min;
 }
 
 #elif _WIN32
@@ -50,35 +58,31 @@ void seed_rand(void) {
 #include <Wincrypt.h>
 #include <Windows.h>
 
-void seed_rand(void) {
-  BCRYPT_ALG_HANDLE hAlgorithm = NULL;
-  unsigned int rand_buf;
-  PUCHAR pbBuffer = (PUCHAR)&rand_buf;
-  ULONG cbBuffer = sizeof(rand_buf);
-  ULONG dwFlags = BCRYPT_USE_SYSTEM_PREFERRED_RNG;
-  NTSTATUS status = BCryptGenRandom(hAlgorithm, pbBuffer, cbBuffer, dwFlags);
-  if (status == STATUS_SUCCESS) {
-    srand(rand_buf);
-  } else {
-    error_msg("problem seeding the pseudorandom number generator");
+void seed_rand(void) { printf("using BCryptGenRandom on Windows\n"); }
+
+int int_rand(int min, int max) {
+  int Buffer, val;
+  BCRYPT_ALG_HANDLE Prov;
+  if (!BCRYPT_SUCCESS(
+          BCryptOpenAlgorithmProvider(&Prov, BCRYPT_RNG_ALGORITHM, NULL, 0))) {
+    error_msg("error.");
   }
+  if (!BCRYPT_SUCCESS(
+          BCryptGenRandom(Prov, (PUCHAR)(&Buffer), sizeof(Buffer), 0))) {
+    error_msg("error.");
+  }
+  val = (Buffer % (max - min + 1)) + min;
+  BCryptCloseAlgorithmProvider(Prov, 0);
+  return val;
 }
 
 #endif
-
-int int_rand(int min, int max) {
-  if (min >= max) {
-    error_msg("minimum value is less than maximum value.");
-  }
-  numbers_generated++;
-  return (rand() % (max - min + 1)) + min;
-}
 
 int *int_rand_no_rep(int min, int max, int len) {
   if (len <= 0) {
     error_msg("invalid length of random number array.");
   }
-  int *seen_arr = calloc((size_t)(max + 1), sizeof(*seen_arr));
+  int *seen_arr = calloc(max + 1, sizeof(int));
   int *draws = malloc(len * sizeof(int));
   int drawn;
 
