@@ -1,6 +1,6 @@
-random seed: 1843059173
+random seed: 1844478979
 100000000 trials were simulated
-the same letters were drawn 44452765 times
-that's equal to 44.452765% of the time
-time to run: 1.758072 seconds
+the same letters were drawn 44438597 times
+that's equal to 44.438597% of the time
+time to run: 1.081542 seconds
 random numbers generated: 200000000

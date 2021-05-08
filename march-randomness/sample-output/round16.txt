@@ -1,6 +1,6 @@
-random seed: 968086077
+random seed: 1328230925
 10000000 trials were simulated
-a red ball was picked 5712382 times
-that's equal to 57.123820% of the time
-time to run: 1.198334 seconds
-random numbers generated: 53167496
+a red ball was picked 5715149 times
+that's equal to 57.151490% of the time
+time to run: 1.041192 seconds
+random numbers generated: 53160396

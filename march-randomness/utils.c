@@ -32,8 +32,8 @@ void seed_rand(void) {
   if (timespec_get(&ts, TIME_UTC) == 0) {
     error_msg("problem seeding the pseudorandom number generator");
   } else {
-    __syscall_slong_t seed = ts.tv_nsec ^ ts.tv_sec;
-    printf("random seed: %li\n", seed);
+    unsigned int seed = ts.tv_nsec ^ ts.tv_sec;
+    printf("random seed: %u\n", seed);
     srandom(seed);
   }
 }

@@ -1,6 +1,6 @@
-random seed: 1883906035
+random seed: 1106796168
 100000000 trials were simulated
-the same number was rolled twice 38430919 times
-that's equal to 38.430919% of the time
-time to run: 3.167981 seconds
-random numbers generated: 422710620
+the same number was rolled twice 38441186 times
+that's equal to 38.441186% of the time
+time to run: 1.740249 seconds
+random numbers generated: 422799421

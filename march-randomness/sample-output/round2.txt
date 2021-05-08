@@ -1,6 +1,6 @@
-random seed: 1957085620
+random seed: 1142107325
 100000000 trials were simulated
-1 coin landed on heads 25000879 times
-that's equal to 25.000879% of the time
-time to run: 2.583605 seconds
-random numbers generated: 324991988
+1 coin landed on heads 24999670 times
+that's equal to 24.999670% of the time
+time to run: 1.519740 seconds
+random numbers generated: 324992528

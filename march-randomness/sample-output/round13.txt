@@ -1,6 +1,6 @@
-random seed: 1665844608
+random seed: 1440347074
 10000000 trials were simulated
-there was a sum of exactly eight 3810465 times
-that's equal to 38.104650% of the time
-time to run: 0.756938 seconds
+there was a sum of exactly eight 3809888 times
+that's equal to 38.098880% of the time
+time to run: 0.649610 seconds
 random numbers generated: 40000000

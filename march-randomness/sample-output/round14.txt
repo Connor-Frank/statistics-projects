@@ -1,6 +1,6 @@
-random seed: 1908933782
+random seed: 1516728494
 100000000 trials were simulated
-both cards had an A on the back 33330019 times
-that's equal to 33.330019% of the time
-time to run: 1.326621 seconds
+both cards had an A on the back 33334533 times
+that's equal to 33.334533% of the time
+time to run: 0.654365 seconds
 random numbers generated: 200000000
