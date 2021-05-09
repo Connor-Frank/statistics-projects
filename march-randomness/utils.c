@@ -40,9 +40,10 @@ void seed_rand(void) {
 
 int int_rand(int min, int max) {
   if (min >= max) {
-    error_msg("minimum value is less than maximum value.");
+    error_msg("minimum value needs to be less than maximum value.");
   }
   numbers_generated++;
+
   return (random() % (max - min + 1)) + min;
 }
 
@@ -61,6 +62,9 @@ int int_rand(int min, int max) {
 void seed_rand(void) { printf("using BCryptGenRandom on Windows\n"); }
 
 int int_rand(int min, int max) {
+  if (min >= max) {
+    error_msg("minimum value needs to be less than maximum value.");
+  }
   int Buffer, val;
   BCRYPT_ALG_HANDLE Prov;
   if (!BCRYPT_SUCCESS(
@@ -72,6 +76,8 @@ int int_rand(int min, int max) {
     error_msg("error.");
   }
   val = (Buffer % (max - min + 1)) + min;
+  numbers_generated++;
+
   BCryptCloseAlgorithmProvider(Prov, 0);
   return val;
 }
@@ -108,6 +114,7 @@ int *int_rand_arr(int min, int max, int len) {
   for (int i = 0; i < len; ++i) {
     arr[i] = int_rand(min, max);
   }
+
   return arr;
 }
 
@@ -117,6 +124,7 @@ int value_in_array(int val, const int *arr, const int len) {
       return 1;
     }
   }
+
   return 0;
 }
 
@@ -137,6 +145,7 @@ int all_equal(const int *arr, const int len) {
       return 0;
     }
   }
+
   return 1;
 }
 
@@ -148,6 +157,7 @@ int find_sums(const int *arr, const int len, int target, int current, int i) {
       return 0;
     }
   }
+
   return find_sums(arr, len, target, current + arr[i], i + 1) +
          find_sums(arr, len, target, current - arr[i], i + 1);
 }
