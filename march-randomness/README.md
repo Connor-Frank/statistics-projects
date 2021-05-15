@@ -4,6 +4,12 @@
 
 "Teams use their probability intuition to predict the outcome of simple random experiments that use dice, balls, cards, and coins, placing StatCoin bets on their predictions to stay in play and take the lead. The competition offers separate categories for high school students and college students — no advanced math or stats required." (from https://thisisstatistics.org/march-randomness)
 
+## Instructions
+
+Run `make` to build everything. Then run `bin/roundX` (replace X with the round you want to run) to run a program. Simple!
+
+Sample output can be found in `sample-output` as `.txt` files if you either can't build the programs or just don't want to.
+
 ## Challenges
 
 #### Round 1
